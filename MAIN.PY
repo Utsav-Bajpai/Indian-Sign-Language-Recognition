@@ -12,14 +12,14 @@ from tensorflow.keras.layers import Dense, Dropout, BatchNormalization
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# ── Load label classes ─────────────────────────────────────────
+#  Load label classes 
 with open(os.path.join(BASE_DIR, 'label_classes.json'), 'r') as f:
     labels = json.load(f)
 
 NUM_CLASSES = len(labels)
 print(f'Loaded {NUM_CLASSES} classes: {labels}')
 
-# ── Build model ────────────────────────────────────────────────
+#  Build model 
 isl_model = Sequential([
     Dense(256, activation='relu', input_shape=(126,)),
     BatchNormalization(),
@@ -44,13 +44,13 @@ isl_model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['a
 isl_model.load_weights(os.path.join(BASE_DIR, 'isl_mediapipe.weights.h5'))
 print('Model loaded!')
 
-# ── MediaPipe setup ────────────────────────────────────────────
+#  MediaPipe setup
 base_options = mp_python.BaseOptions(
     model_asset_path=os.path.join(BASE_DIR, 'hand_landmarker.task')
 )
 options = mp_vision.HandLandmarkerOptions(
     base_options=base_options,
-    num_hands=2,                          # ← 2 hands
+    num_hands=2,                          
     min_hand_detection_confidence=0.5,
     min_hand_presence_confidence=0.5,
     min_tracking_confidence=0.5,
@@ -67,11 +67,11 @@ CONNECTIONS = [
     (5,9),(9,13),(13,17)
 ]
 
-# ── Smoothing buffer ───────────────────────────────────────────
+#  Smoothing buffer
 SMOOTH_FRAMES = 20
 pred_buffer = deque(maxlen=SMOOTH_FRAMES)
 
-# ── Word/sentence recording ────────────────────────────────────
+#  Word/sentence recording
 CONFIDENCE_THRESHOLD = 0.50
 HOLD_SECONDS = 0.8
 NO_HAND_TIMEOUT = 2.0
@@ -126,7 +126,7 @@ while True:
             for pt in pts:
                 cv2.circle(frame, pt, 4, (255, 0, 0), -1)
 
-        # ── Extract 2-hand coords (always 126 features) ───────
+        #  Extract 2-hand coords (always 126 features)
         coords = []
         for hand_idx in range(2):
             if hand_idx < len(result.hand_landmarks):
@@ -162,7 +162,7 @@ while True:
         best_confidence = avg_pred[best_idx]
         best_label = labels[best_idx] if best_confidence >= CONFIDENCE_THRESHOLD else "..."
 
-        # ── Letter hold logic ──────────────────────────────────
+        #  Letter hold logic
         if best_label != "...":
             if best_label == current_letter:
                 held_time = time.time() - letter_hold_start
@@ -200,10 +200,10 @@ while True:
             current_word = ""                          # ← fixed reset
             last_hand_time = time.time()
 
-    # ── Build sentence ─────────────────────────────────────────
+    #  Build sentence
     full_sentence = ''.join(sentence)
 
-    # ── Display ────────────────────────────────────────────────
+    #  Display
     color = (0, 255, 0) if best_confidence >= CONFIDENCE_THRESHOLD else (0, 0, 255)
     cv2.putText(frame, f"{best_label.upper()}", (30, 70),
                 cv2.FONT_HERSHEY_SIMPLEX, 2.5, color, 3)
@@ -246,7 +246,7 @@ while True:
         save_to_file(f"Word completed (manual): {current_word}")
         current_word = ""
 
-# ── Save final sentence ────────────────────────────────────────
+#  Save final sentence
 final = ''.join(sentence)
 save_to_file("\n=== Session Ended ===")
 save_to_file(f"Full sentence: {final}")
