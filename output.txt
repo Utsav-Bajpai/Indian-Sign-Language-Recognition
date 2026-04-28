@@ -1,0 +1,36 @@
+=== ISL Session Started ===
+Letter recorded: A | Word so far: A
+Letter recorded: U | Word so far: AU
+Word completed: AU
+Letter recorded: E | Word so far: E
+Letter recorded: E | Word so far: EE
+Word completed: EE
+Letter recorded: I | Word so far: I
+Letter recorded: I | Word so far: II
+Letter recorded: I | Word so far: III
+Letter recorded: I | Word so far: IIII
+Letter recorded: I | Word so far: IIIII
+Letter recorded: I | Word so far: IIIIII
+Letter recorded: I | Word so far: IIIIIII
+Letter recorded: I | Word so far: IIIIIIII
+Letter recorded: I | Word so far: IIIIIIIII
+Letter recorded: I | Word so far: IIIIIIIIII
+Letter recorded: L | Word so far: IIIIIIIIIIL
+Letter recorded: O | Word so far: IIIIIIIIIILO
+Letter recorded: V | Word so far: IIIIIIIIIILOV
+Letter recorded: C | Word so far: IIIIIIIIIILOVC
+Letter recorded: C | Word so far: IIIIIIIIIILOVCC
+Letter recorded: C | Word so far: IIIIIIIIIILOVCCC
+Letter recorded: C | Word so far: IIIIIIIIIILOVCCCC
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCX
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXX
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXXX
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXXXX
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXXXXX
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXXXXXX
+Letter recorded: C | Word so far: IIIIIIIIIILOVCCCCXXXXXXC
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXXXXXXCX
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXXXXXXCXX
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXXXXXXCXXX
+Letter recorded: X | Word so far: IIIIIIIIIILOVCCCCXXXXXXCXXXX
+Word completed: IIIIIIIIIILOVCCCCXXXXXXCXXXX
